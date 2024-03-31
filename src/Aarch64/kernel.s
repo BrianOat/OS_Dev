@@ -19,4 +19,4 @@ done:
 
 .section .rodata
 hello_world:
-    .ascii "Hello, World!\n\0"
+    .ascii "Hello World\n\0"
