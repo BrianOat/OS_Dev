@@ -1,4 +1,4 @@
-.section .text
+.section .text // Specify that the code should reside in the text section in memory. Typically contains executable instructions
 .global _start
 
 _start:
