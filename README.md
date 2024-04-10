@@ -9,8 +9,13 @@ sudo apt-get update
 sudo apt install gcc-aarch64-linux-gnu
 ```
 
-## Install QEMU
+## Building QEMU
 QEMU is an emulator for different processor architectures, which will be used for kernel testing purposes without needing the hardware.
+### Install dependencies
+```bash
+sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build
+```
+### Build QEMU
 ```bash
 git clone https://gitlab.com/qemu-project/qemu.git
 cd qemu
