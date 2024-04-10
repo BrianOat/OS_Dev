@@ -12,7 +12,13 @@ sudo apt install gcc-aarch64-linux-gnu
 ## Install QEMU
 QEMU is an emulator for different processor architectures, which will be used for kernel testing purposes without needing the hardware.
 ```bash
-sudo apt-get install qemu
+git clone https://gitlab.com/qemu-project/qemu.git
+cd qemu
+git submodule init
+git submodule update --recursive
+./configure --target-list=aarch64-softmmu
+# Execute commands in parallel, I have 32 core system so -j32
+make -j32
 ```
 
 ## Assembling the Kernel
@@ -25,5 +31,5 @@ aarch64-linux-gnu-ld -o kernel kernel.o
 ## Test the OS using QEMU
 Note: To terminate press Ctrl+a and then press x
 ```bash
-qemu-system-aarch64 -M virt -cpu cortex-a53 -nographic -kernel kernel
+./qemu-system-aarch64 -M raspi4b -nographic -kernel kernel
 ```
