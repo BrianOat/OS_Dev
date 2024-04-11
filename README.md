@@ -16,14 +16,10 @@ QEMU is an emulator for different processor architectures, which will be used fo
 sudo apt-get install git libglib2.0-dev libfdt-dev libpixman-1-dev zlib1g-dev ninja-build
 ```
 ### Build QEMU
+Follow instructions at https://www.qemu.org/download/#source with the following modifications
 ```bash
-git clone https://gitlab.com/qemu-project/qemu.git
-cd qemu
-git submodule init
-git submodule update --recursive
-./configure --target-list=aarch64-softmmu
-# Execute commands in parallel, I have 32 core system so -j32
-make -j32
+./configure --target-list=aarch64-softmmu,arm-softmmu # Modify the configure to only build the needed binaries
+make -j32 # Parallel execution, faster (set # to core count)
 ```
 
 ## Assembling the Kernel
